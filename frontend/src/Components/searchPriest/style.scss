@@ -1,0 +1,36 @@
+.search-priest{
+    .heading{
+        h2{
+            text-align: center;
+            background: red;
+            margin: 0;
+            padding: 25px;
+            font-size: 32px;
+            color: white;
+        }
+    }
+}
+#btns{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    gap: 6px;
+    a{
+        text-decoration: none;
+        background: #9498f2;
+        font-size: 19px;
+        border: none;
+        text-align: center;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width:600px){
+    #btns a{
+        position: relative;
+        left: -63%;
+        width: 175%;
+    }
+}

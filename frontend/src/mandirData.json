@@ -1,0 +1,45 @@
+{
+  "mandirs": [
+    {
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRtq3MK60autDOBZQN2ROfBykJvVc3eWUuwg&s",
+      "discription": "Banke Bihari Temple is located in Biharipura in Vrindavan Dham in Mathura district in India. It is one of the ancient and famous temples of India. Banke Bihari is a form of Krishna which is displayed in it. It was constructed by Swami Haridas in 1864.[2]",
+      "winter": "8:30am to 1:00pm, 5:30pm to 9:00pm",
+      "summer": "7:30am to 12:00pm, 4:30pm to 8:00pm",
+      "location": "https://maps.app.goo.gl/5eNtqTkN7CH9TZmQ6",
+      "Name": "Shri Banke Bihari Ji Mandir"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Prem_mandir_Vrindavan.JPG/640px-Prem_mandir_Vrindavan.JPG",
+      "discription": "Prem Mandir is located in Vrindavan near Mathura district of Uttar Pradesh state in India. It was constructed by Jagadguru Kripalu Maharaj as a temple of Lord Krishna and Radha. Prem Mandir was inaugurated on 17 February. It took 11 years and an amount of approximately Rs 100 crore to build this temple.",
+      "summer": "5:30am to 12:00pm, 4:30pm to 8:30pm",
+      "winter": "6:30am to 12:15pm, 4:30pm to 8:00pm",
+      "location": "https://www.google.com/maps/place/Prem+Mandir,+Vrindavan/@27.5718524,77.6720096,15z/data=!4m2!3m1!1s0x0:0x59edc7620411f9f3?sa=X&ved=1t:2428&ictx=111",
+      "Name": "Prem Mandir Vrindavan"
+    },
+    {
+        "Name":"Iskon Temple Vrindavan",
+      "url": "https://static.tnnbt.in/photo/msid-105506664,width-100,height-200,resizemode-75/105506664.jpg",
+      "discription": "ISKCON Vrindavan, also called Sri Krishna Balaram Mandir, is one of the major ISKCON temples in the world. It is a Gaudiya Vaishnava temple located in the city of Vrindavan, Mathura district, in the Indian state of Uttar Pradesh.[1] The temple is dedicated to the Hindu gods Krishna and Balarama. The other deities of temple are Radha Krishna and Gauranga Nityananda",
+      "summer": "4:30am to 12:00pm, 4:30pm to 8:00pm",
+      "winter": "4:30am to 12:00pm, 4:30pm to 8:15pm",
+      "location": "https://www.google.com/maps/place/Sri+Sri+Krishna+Balaram+Mandir+(ISKCON+Vrindavan)/@27.5718985,77.6773927,15z/data=!4m2!3m1!1s0x0:0xb12573270e6273a1?sa=X&ved=1t:2428&ictx=111"
+    },
+    {
+        "Name":"Rang Ji Mandir Vrindavan",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Rangji_temple_%28Vrindavan%29.jpg",
+      "discription": "There are many famous temples of Sri Ranganatha of which Sri Ranganathaswamy Temple, Srirangam is the most famous. Shri Ranganath is the form of Lord Vishnu. Although Ranganath Swami is the worshipable deity of all Hindus, Vaishnav people worship him especially. The literal meaning of 'Ranganath' is 'lord of the gathering place'.",
+      "summer": "5:30am to 12pm, 4:00pm to 9:00pm",
+      "winter": "6:00am to 12:15pm, 4:00pm to 9:00pm",
+      "location": "https://maps.app.goo.gl/LZUvb7iJp8HCFZoR9"
+    },
+    {
+        "Name":"Janambhumi Mathura",
+      "url": "https://photos.wikimapia.org/p/00/01/36/85/39_big.jpg",
+      "discription": "The Krishna Janmasthan Temple Complex is a group of Hindu temples situated in Mathura, Uttar Pradesh, India. There are three main temples inside the premises -- Keshavdev temple which is dedicated to Krishna, Garbh Griha where Krishna is believed to be born in Dvapar Yuga and Bhagvata Bhavan where presiding deities are Radha Krishna.",
+      "summer": "5:30am to 12:00pm, 4:00pm to 9:30pm",
+      "winter": "5:00am to 12:15pm, 3:00pm to 8:30pm",
+      "location": "https://maps.app.goo.gl/ssRMdaaGwkM4MJnZ6"
+    }
+
+  ]
+}

@@ -1,0 +1,18 @@
+.form-heading h3{
+    text-align: center;
+    font-size: 23px;
+    font-family: math;
+    cursor: pointer;
+}
+.form-container{
+    width: 100%;
+    form{
+        margin: auto;
+        width: 50%;
+        .signup{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
