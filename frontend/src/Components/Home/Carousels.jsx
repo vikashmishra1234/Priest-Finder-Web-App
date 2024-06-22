@@ -13,7 +13,7 @@ const Carousels = () => {
     <div>
         
         <div id='legend1'>
-        <h1 className="">Welcome to <bold id='bold'>Mathura-Vrindavan</bold></h1>
+        <h1 className="">Jai Shree <bold id='bold'>Krishna</bold></h1>
         <p>One of the <span style={{color:'bisque',fontWeight:'bold'}}>Spiritual</span> and sacred places in India, lined with a number of temples along the roads is Mathura City, the birth land of <span style={{color:'bisque',fontWeight:'bold'}}>Lord Krishna</span></p>
         </div>
     </div>
