@@ -1,7 +1,7 @@
 import { ColorRing } from "react-loader-spinner"
 export const Loading = ()=>{
  return <div
-    style={{position:'fixed',left:'45%',top:'50%',width:'fit-content'}}
+    style={{position:'fixed',left:'41%',top:'50%',width:'fit-content',background:"black"}}
  >
 
      <ColorRing
