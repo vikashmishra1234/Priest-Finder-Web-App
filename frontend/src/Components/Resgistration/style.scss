@@ -196,21 +196,33 @@ a{
     .profile-wrapper{
         .profile-container{
         justify-content: space-around;
+        .more{
+           ul{
+            background-color: #cd7575;
+            color: white;
+            border: none;
+            left: 52%;
+            top: 45%;
+            font-size: 16px;
+            border-radius: 8px;
+           
+           }
+        }
             >div:first-child{
                     img{
-                        height: 94px;
+                        height: 77px;
                         border: 2px solid;
-                        width: 97px;
+                        width: 76px;
                        
                     }
             }
             >div:nth-child(2){
-                font-size: 20px;
+                font-size: 18px;
                 width: 61%;
                 
                 >div>button{
-                    font-size: 17px;
-                    padding: 7px;
+                    font-size: 16px;
+                    padding: 5px;
                 }
             }
         }

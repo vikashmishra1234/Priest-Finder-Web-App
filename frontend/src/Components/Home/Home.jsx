@@ -11,7 +11,8 @@ import Cards from '../Restaurents/Cards';
 import restaurentData from '../../RestaurentData.json';
 import About from './About';
 import Footer from '../footer/Footer';
-// import { Loading } from '../Loader'
+// import Loader from '../Loader'
+import { Loading } from '../Loader'
 const Home = () => {
   const Navigate = useNavigate();
   const priests = useSelector((state) => state.PriestData.priests)
@@ -29,9 +30,9 @@ const Home = () => {
         <div>
         <h2>Some Popular Priests in Vrindavan</h2>
         {
-        priests&&priests.length>0&&priests.map((priest,ind)=>(
+        priests?priests.length>0&&priests.map((priest,ind)=>(
            ind<3?<PriestIntro priest={priest} key={priest._id}/>:'' 
-        ))
+        )):loading?<Loading/>:""
        }
        <div id='see' onClick={()=>{Navigate('/priest/find')}}>See All <FaLongArrowAltRight /></div>
         </div>

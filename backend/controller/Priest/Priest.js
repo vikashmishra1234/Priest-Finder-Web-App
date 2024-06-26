@@ -28,7 +28,7 @@ exports.priestRegistration = async (req, res) => {
         await newUser.save();
 
         // Generate a JWT token
-        const token = jwt.sign({ id: newUser._id }, JWT_SECRET, { expiresIn: '96h' });
+        const token = jwt.sign({ id: newUser._id }, JWT_SECRET);
 
         // Respond with success message and token
         res.status(201).json({
@@ -106,7 +106,7 @@ exports.priestLogin = async (req, res) => {
         }}
 
         // Generate a JWT token
-        const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '96h' });
+        const token = jwt.sign({ id: user._id }, JWT_SECRET);
 
         // Respond with success message and token
         res.status(200).json({

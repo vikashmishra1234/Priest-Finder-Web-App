@@ -40,10 +40,10 @@ const hanldeLogOut = ()=>{
             </div>
             <div>
                 <div>
-                <CgProfile color='' size={'36px'} /> <span>{profileData.Name}</span>
+                <CgProfile color='' size={'30px'} /> <span>{profileData.Name}</span>
                 </div>
                 <div>
-                <FaPhoneAlt color='blue' size={'28px'} /> <span>+91 {profileData.Phone}</span>
+                <FaPhoneAlt color='blue' size={'23px'} /> <span>+91 {profileData.Phone}</span>
                 </div>
                 <div>
                     <span>Invites:{profileData.Invites}</span>

@@ -3,41 +3,63 @@ import axios from 'axios';
 import { registration, updateProfile } from '../../Services/Apis';
 import { Navigate, useNavigate } from 'react-router-dom';
 import ContextProvider from '../../Context/ContextProvider';
+import { Loading } from '../Loader';
+import Swal from 'sweetalert2';
 const SignUp = ({button,heading,user_id}) => {
   const [profile,setProfile] = useState('');
   const [isEdit,setEdit] = useState(heading);
   const {priest,setPriest} = useContext(ContextProvider);
+  const [loading,setLoading] = useState(false);
   const Navigate = useNavigate();
 
     const handleProfile = async (e) => {
         const formData = new FormData();
         formData.append("file", e.target.files[0]);
         formData.append("upload_preset", "vikashmishra");
-       
+       setLoading(true)
         await axios
           .post("https://api.cloudinary.com/v1_1/dwjh8zji6/image/upload", formData)
           .then((resp) => {
-           
+           setLoading(false)
             setProfile(resp.data.url);
             priest.Profile = resp.data.url;
           })
-          .catch((err) => console.log(err));
+          .catch((err) => {
+            setLoading(false);
+            console.log(err)
+          });
       };
       const handleSubmit = async (e) => {
         e.preventDefault();
         if(isEdit){
+          setLoading(true)
           const res = await updateProfile(priest);
+          setLoading(false)
           if(res.success){
-            alert(res.message);
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              text: res.message,
+              showConfirmButton: false,
+              timer: 1100
+            });
             Navigate('/register/user');
           }
         }
         else{
-        
+        setLoading(true)
         const res = await registration(priest);
+        setLoading(false);
         if(res.success){
           localStorage.setItem("priestToken",res.token)
-          alert(res.message);
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            text: res.message,
+            showConfirmButton: false,
+            timer: 1100
+          });
+         
           Navigate('/register/user');
         }
         
@@ -47,9 +69,11 @@ const SignUp = ({button,heading,user_id}) => {
         setPriest({ ...priest, [e.target.name]: e.target.value })
       };
   return (
-    <div >
-
-    <form action="" onSubmit={handleSubmit}>
+    <div className='login-container' >
+{
+  loading&&<Loading/>
+}
+    <form action="" className='login-form' onSubmit={handleSubmit}>
 
     <div className='signup'>
         <div>
@@ -63,7 +87,7 @@ const SignUp = ({button,heading,user_id}) => {
         <div>
             {profile&&<img height={50} width={30} src={profile} alt="" />}
         </div>
-        {isEdit?<button type='submit'>{button}</button>:<button type='submit'>Submit</button>}
+        {isEdit?<button disabled={loading} type='submit'>{button}</button>:<button disabled={loading} type='submit'>Submit</button>}
     </div>
     </form>
     </div>

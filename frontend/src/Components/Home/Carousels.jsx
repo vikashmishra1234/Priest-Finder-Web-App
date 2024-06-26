@@ -6,9 +6,10 @@ const Carousels = () => {
     <div className="carousel-container">
 
     <Carousel
- 
+ emulateTouch={true}
     showArrows={false}
     infiniteLoop={true}
+    swipeable={false}
     >
     <div>
         

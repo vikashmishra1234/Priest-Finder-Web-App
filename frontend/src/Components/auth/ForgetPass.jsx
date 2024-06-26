@@ -6,12 +6,15 @@ import { auth } from '../../firebase/setup';
 import { RecaptchaVerifier } from 'firebase/auth';
 import { phoneExit, priestLogin } from '../../Services/Apis';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { Loading } from '../Loader';
 
 const ForgetPass = () => {
   const [phone, setPhone] = useState('');
   const [otp, setOtp] = useState(null);
   const [user, setUser] = useState(null);
   const [isSend, setSend] = useState(false);
+  const [loading,setLoading] = useState(false);
+  const [isSent,setSent] = useState(false)
   const Navigate = useNavigate();
 const sendOtp = async()=>{
   const res = await phoneExit(phone);
@@ -23,12 +26,16 @@ const sendOtp = async()=>{
     const phoneNumber = '+' + phone;
     const recapta  = new RecaptchaVerifier(auth,'recapta',{});
     const confirmation = await signInWithPhoneNumber(auth,phoneNumber,recapta);
+    
    setUser(confirmation);
-   alert("sent otp")
+
+   alert("OTP has been sent successfully");
+   setSent(true)
    setSend(true)
   } catch (error) {
     console.log(error.message);
   }
+ 
 }
 const verfiyOtp=async()=>{
   try {
@@ -46,9 +53,13 @@ const verfiyOtp=async()=>{
     alert(error.message)
     console.log(error.message);
   }
+
 }
   return (
     <div>
+      {
+        loading&&<Loading/>
+      }
       <PhoneInput
         country={'in'}
         value={phone}
@@ -56,7 +67,7 @@ const verfiyOtp=async()=>{
       />
       <div id='recapta'></div>
     <div>
-<button onClick={sendOtp}>sendOtp</button>
+<button disabled={isSent} onClick={sendOtp}>sendOtp</button>
     </div>
 
   { isSend&&<div>
