@@ -5,12 +5,8 @@ import './style.scss'
 import { Navigate, useNavigate } from "react-router-dom";
 
 const Auth = () => {
-const Navigate = useNavigate();
- useEffect(()=>{
-    if(localStorage.getItem("priestToken")){
-      Navigate('/register/user');
-    }
- },[localStorage.getItem("priestToken")])
+
+   
   const [show, setShow] = useState(false);
  
   

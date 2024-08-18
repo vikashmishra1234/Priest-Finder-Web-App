@@ -6,7 +6,7 @@
 #btns{
     display: flex;
     flex-direction: column;
-    width: 85%;
+   
     gap: 6px;
     a{
         text-decoration: none;
@@ -22,8 +22,6 @@
 
 @media screen and (max-width:600px){
     #btns a{
-        position: relative;
-        left: -63%;
-        width: 175%;
+      
     }
 }

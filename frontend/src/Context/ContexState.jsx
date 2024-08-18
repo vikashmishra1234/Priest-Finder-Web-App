@@ -7,9 +7,10 @@ const ContextState = (props) => {
   const [priest,setPriest] =useState({Name:'',Password:'',Whatsapp:"",Profile:'',Phone:''});
   const [change,setChange] = useState(Math.random());
   const [PriestProfile,setProfilePriest] = useState([]);
+  const [tokenExits,setTokenExits] = useState(false);
  
   return (
-    <ContextProvider.Provider value={{priest,change,PriestProfile,setProfilePriest,setChange,setPriest}} >
+    <ContextProvider.Provider value={{priest,change,tokenExits,PriestProfile,setTokenExits,setProfilePriest,setChange,setPriest}} >
         {props.children}
     </ContextProvider.Provider>
   )

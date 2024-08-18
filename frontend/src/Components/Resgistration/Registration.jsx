@@ -11,13 +11,13 @@ const Registration = () => {
   const [profileData,setProfileData]= useState();
   const [loading,setLoading] = useState(false);
   const {priest,setPriest,change} = useContext(ContextProvider);
-  const [tokenExit,setToken] = useState(localStorage.getItem("priestToken"))
+  const {tokenExits,setTokenExits} = useContext(ContextProvider);
   useEffect(()=>{
-    if(!tokenExit){
+    if(!tokenExits){
       setPriest({Name:'',Password:'',Whatsapp:"",Profile:'',Phone:''})
       Navigate('/register');
     }
- },[tokenExit])
+ },[tokenExits])
  useEffect(()=>{
   
     const getPriest=async()=>{
@@ -37,7 +37,7 @@ const Registration = () => {
 {
   loading&&<Loading/>
 }
-        {profileData&&<Profile setToken={setToken} profileData={profileData}/>}
+        {profileData&&<Profile setTokenExits={setTokenExits} profileData={profileData}/>}
         {/* <Reveiw/> */}
         
     </section>

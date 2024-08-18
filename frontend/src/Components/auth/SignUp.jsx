@@ -5,10 +5,12 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import ContextProvider from '../../Context/ContextProvider';
 import { Loading } from '../Loader';
 import Swal from 'sweetalert2';
+import Cookies from 'js-cookie';
+
 const SignUp = ({button,heading,user_id}) => {
   const [profile,setProfile] = useState('');
   const [isEdit,setEdit] = useState(heading);
-  const {priest,setPriest} = useContext(ContextProvider);
+  const {priest,setPriest,setTokenExits} = useContext(ContextProvider);
   const [loading,setLoading] = useState(false);
   const Navigate = useNavigate();
 
@@ -43,15 +45,18 @@ const SignUp = ({button,heading,user_id}) => {
               showConfirmButton: false,
               timer: 1100
             });
-            Navigate('/register/user');
+            Navigate('/user');
           }
         }
         else{
         setLoading(true)
+        console.log(priest)
         const res = await registration(priest);
         setLoading(false);
         if(res.success){
-          localStorage.setItem("priestToken",res.token)
+          Cookies.set("priestToken",res.token)
+          setTokenExits(true)
+          Navigate('/user')
           Swal.fire({
             position: "center",
             icon: "success",
@@ -60,7 +65,7 @@ const SignUp = ({button,heading,user_id}) => {
             timer: 1100
           });
          
-          Navigate('/register/user');
+         
         }
         
        }
@@ -82,6 +87,7 @@ const SignUp = ({button,heading,user_id}) => {
         <input required value={priest.Name} onChange={handleChange} name='Name' type="text" placeholder='Your Name' />
         <input required value={priest.Phone} onChange={handleChange} name='Phone' type="tel" placeholder='Phone Number' />
         <input required value={priest.Whatsapp} onChange={handleChange} name='Whatsapp' type="tel" placeholder='Whatsapp' />
+        <textarea style={{maxWidth:'100%'}} type="text" value={priest.Bio} placeholder='Bio' name='Bio' onChange={handleChange} required  />
         <input required  onChange={handleChange} name='Password' type="password" placeholder={isEdit?'Enter New Password':'Set Password'} />
         <input  onChange={handleProfile} name='Profile' type="file"  />
         <div>

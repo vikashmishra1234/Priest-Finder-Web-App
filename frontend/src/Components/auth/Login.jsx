@@ -1,29 +1,37 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { priestLogin } from '../../Services/Apis';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './style.scss'
 import { Loading } from '../Loader';
+import Cookies from 'js-cookie';
+import Swal from 'sweetalert2';
+import ContextProvider from '../../Context/ContextProvider';
+
 const Login = () => {
   const [Phone, setPhone] = useState('');
   const [Password, setPassword] = useState('');
   const [loading,setLoading] = useState(false);
-  const navigate = useNavigate();
+  const {setTokenExits} = useContext(ContextProvider);
+  const Navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true)
     const res = await priestLogin({ Phone, Password });
     setLoading(false)
-    localStorage.setItem("priestToken", res.token);
-    navigate('/register/user');
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      text: res.message,
-      showConfirmButton: false,
-      timer: 1100
-    });
+    if(res){
+      Cookies.set("priestToken",res.token)
+      setTokenExits(true)
+      Navigate('/user');
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        text: res.message,
+        showConfirmButton: false,
+        timer: 1100
+      });
+    }
   }
 
   return (

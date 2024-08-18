@@ -3,6 +3,9 @@ import { CgProfile } from "react-icons/cg";
 import { FaPhoneAlt } from "react-icons/fa";
 import { Navigate, useNavigate } from 'react-router-dom';
 import { FaWhatsapp } from "react-icons/fa6";
+import '../Resgistration/style.scss'
+
+
 const PriestIntro = ({priest,profile}) => {
     const Navigate = useNavigate();
   return (
@@ -10,7 +13,7 @@ const PriestIntro = ({priest,profile}) => {
       {
        profile&&<h2>Profile</h2>}
     <div className='profile-container'>
-        <div >
+        <div className='profile-image' >
            
             {
 
@@ -20,10 +23,13 @@ const PriestIntro = ({priest,profile}) => {
                 priest.Profile&&<img src={priest.Profile} alt="" />
             }
 
+            <div className='profile-name'>
+            <CgProfile style={{display:'none'}} color='green' size={'28px'} /> <span>{priest.Name}</span>
+            </div>
         </div>
-        <div>
-            <div>
-            <CgProfile color='green' size={'28px'} /> <span>{priest.Name}</span>
+        <div className='profile-about'>
+            <div className="bio">
+                {priest.Bio}
             </div>
             <div>
             <FaPhoneAlt color='blue' size={'21px'} /> <span>+91 {priest.Phone}</span>

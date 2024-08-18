@@ -12,8 +12,7 @@ export const fetchPriestData = createAsyncThunk(
   async () => {
    
     const res = await getPriests();
-    
-    return res.priests;
+    if(res) return res.priests;
   }
 );
 

@@ -10,7 +10,7 @@
     border: .3px solid rgb(166, 164, 164);
     background-color: white;
     gap: 20px;
-    margin: 10px auto 10px auto;
+    margin: 73px auto 58px auto;
     padding: 10px 10px 22px 10px;
     border-radius: 11px;
         .card-image{
@@ -29,6 +29,7 @@
             width: 50%;
             h2{
                 margin: 0;
+                margin-bottom: 20px;
                 padding-top: 10px;
                 padding-bottom: 5px;
                 text-align: center;
@@ -49,6 +50,9 @@
             .card-button{
                 text-align: center;
                a{
+                height: 36px;
+    border-radius: 8px;
+    font-family: sans-serif;
                 display: flex;
                 justify-content: center;
                 gap: 12px;

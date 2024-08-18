@@ -1,142 +1,109 @@
-import axios from "axios"
-// const url = 'http://localhost:5000';
-const url = 'https://tourist-guide-ha95.onrender.com'
+import axios from "axios";
+import Cookies from 'js-cookie';
+import { useState } from "react";
 
-export const registration=async(data)=>{
-   
+// Set the base URL once
+const api = axios.create({
+    // baseURL: 'http://localhost:5000', // Update to your live URL if needed
+    baseURL: 'https://tourist-guide-ha95.onrender.com'
+});
+
+// Utility function to get config with Authorization header
+const getAuthConfig = () => ({
+    headers: {
+        "Authorization": `vikash ${Cookies.get("priestToken")}`
+    }
+});
+
+// Common error handler
+const handleError = (error) => {
+    if (error.response) {
+        console.error('Error message:', error.response.data.error);
+        alert(error.response.data.error);
+    } else {
+        console.error('Unexpected error:', error.message);
+    }
+};
+
+// API Requests
+export const registration = async (data) => {
+    
     try {
-       
-        const res =await axios.post(`${url}/priest/register`,data);
+        const res = await api.post('/priest/register', data);
         return res.data;
     } catch (error) {
-       
-        if (error.response) {
-           
-            // console.error('Error status:', error.response.status);
-            alert(error.response.data.error)
-            console.error('Error message:', error.response.data.error);
-          }
+        handleError(error);
     }
 }
-export const priestLogin=async(data)=>{
-  
+
+export const priestLogin = async (data) => {
     try {
-        const res =await axios.post(`${url}/priest/login`,data);
+        const res = await api.post('/priest/login', data);
         return res.data;
     } catch (error) {
-        if (error.response) {
-           
-            console.error('Error message:', error.response.data.error);
-            alert(error.response.data.error)
-          }
+        handleError(error);
     }
 }
-export const updateProfile=async(data)=>{
-    const config = {
-        headers:{
-            "Authorization":`vikash ${localStorage.getItem("priestToken")}`
-        }
-    };
+
+export const updateProfile = async (data) => {
     try {
-        const res =await axios.post(`${url}/priest/update`,data,config);
+        const res = await api.post('/priest/update', data, getAuthConfig());
         return res.data;
     } catch (error) {
-        console.log(error.message)
-        if (error.response) {
-       
-            console.error('Error message:', error.response.data.error);
-            alert(error.response.data.error)
-          }
-         
+        handleError(error);
     }
 }
-export const getPriests=async()=>{
-   
-   
+
+export const getPriests = async () => {
     try {
-        const res =await axios.get(`${url}/priests/get`);
+        const res = await api.get('/priests/get');
         return res.data;
     } catch (error) {
-        console.log(error)
-        if (error.response) {
-           
-            console.error('Error message:', error.response.data.error);
-            alert(error.response.data.error)
-          }
+        handleError(error);
     }
 }
-export const getProfile=async()=>{
-    const config = {
-        headers:{
-            "Authorization":`vikash ${localStorage.getItem("priestToken")}`
-        }
-    };
-   
+
+export const getProfile = async () => {
     try {
-        const res =await axios.get(`${url}/priest/get`,config);
+        const res = await api.get('/priest/get', getAuthConfig());
         return res.data;
     } catch (error) {
-        if (error.response) {
-           
-            console.error('Error message:', error.response.data.error);
-            alert(error.response.data.error)
-          }
+        handleError(error);
     }
 }
-export const deleteProfile=async()=>{
-    const config = {
-        headers:{
-            "Authorization":`vikash ${localStorage.getItem("priestToken")}`
-        }
-    };
+
+export const deleteProfile = async () => {
     try {
-        const res =await axios.delete(`${url}/priest/delete`,config);
+        const res = await api.delete('/priest/delete', getAuthConfig());
         return res.data;
     } catch (error) {
-        if (error.response) {
-           
-            console.error('Error message:', error.response.data.error);
-            alert(error.response.data.error)
-          }
+        handleError(error);
     }
 }
-export const phoneExit=async(Phone)=>{
-   
+
+export const phoneExit = async (Phone) => {
     try {
-        const res =await axios.get(`${url}/phone/exit?Phone=${Phone}`);
+        const res = await api.get(`/phone/exit?Phone=${Phone}`);
         return res.data;
     } catch (error) {
-        if (error.response) {
-           
-            console.error('Error message:', error.response.data.error);
-            alert(error.response.data.error);
-         
-          }
+        handleError(error);
     }
 }
-export const getFeedback=async(priestId)=>{
-   
+
+export const getFeedback = async (priestId) => {
     try {
-        const res =await axios.get(`${url}/feedback/get?priestId=${priestId}`);
+        const res = await api.get(`/feedback/get?priestId=${priestId}`);
         return res.data;
     } catch (error) {
-        if (error.response) {
-           
-            console.error('Error message:', error.response.data.error);
-         
-          }
+        handleError(error);
     }
 }
-export const addFeedback=async(data)=>{
-   
+
+export const addFeedback = async (data) => {
     try {
-        const res =await axios.post(`${url}/add/feedback`,data);
+        const res = await api.post('/add/feedback', data);
         return res.data;
     } catch (error) {
-        if (error.response) {
-           
-            console.error('Error message:', error.response.data.error);
-            alert(error.response.data.error)
-          }
+        handleError(error);
     }
 }

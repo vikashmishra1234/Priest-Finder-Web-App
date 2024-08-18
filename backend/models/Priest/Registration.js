@@ -22,6 +22,10 @@ const priestSchema= mongoose.Schema({
         type:String,
         default:"0"
     },
+    Bio:{
+        type:String,
+        required:true
+    },
     Profile:{
         type:String,
     }

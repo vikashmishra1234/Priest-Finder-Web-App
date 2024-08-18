@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './style.scss'
 import { Link } from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
 import mandir from '../../assets/mandir.png'
 import { RxCross2 } from "react-icons/rx";
+import ContextProvider from '../../Context/ContextProvider';
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
+  const {tokenExits} = useContext(ContextProvider);
 
   return (
     <header>
@@ -16,7 +18,7 @@ const Navbar = () => {
       <nav className={`nav ${show ? 'show' : ''}`}>
         <ul>
           <li onClick={() => setShow(false)}><Link to='/'>Home</Link></li>
-          <li onClick={() => setShow(false)}><Link to='/register'>{localStorage.getItem("priestToken") ? 'My Profile' : 'Become Priest'}</Link></li>
+          <li onClick={() => setShow(false)}><Link to={`${tokenExits?'/user':'/register'}`}>{tokenExits ? 'My Profile' : 'Become Priest'}</Link></li>
           <li onClick={() => setShow(false)}><Link to='/priest/find'>Find Priest</Link></li>
           <li onClick={() => setShow(false)}><Link to='/restaurent'>Best Restaurant</Link></li>
           <li onClick={() => setShow(false)}>Hotel</li>

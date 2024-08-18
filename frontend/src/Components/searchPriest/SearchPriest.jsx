@@ -18,12 +18,12 @@ const SearchPriest = ({changes}) => {
         window.scrollTo(0, 0);
         
     },[])
+    if(loading){
+        return <Loading/>
+    }
   return (
     <>
     <section className='search-priest'>
-        {
-            loading&&<Loading/>
-        }
         <div className='heading'>
             <h2>
                 Some Popular Priest In Mathura-Vrindavan
