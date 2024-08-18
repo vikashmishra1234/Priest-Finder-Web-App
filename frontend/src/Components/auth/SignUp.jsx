@@ -6,10 +6,17 @@ import ContextProvider from '../../Context/ContextProvider';
 import { Loading } from '../Loader';
 import Swal from 'sweetalert2';
 import Cookies from 'js-cookie';
+import PhoneInput from 'react-phone-input-2';
+import { auth } from '../../firebase/setup';
+import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
 
 const SignUp = ({button,heading,user_id}) => {
   const [profile,setProfile] = useState('');
   const [isEdit,setEdit] = useState(heading);
+  const [phone,setPhone] = useState('');
+  const [user,setUser] = useState('');
+  const [otpSent,setSendOpt] = useState(false);
+  const [otp,setOTP] = useState(null);
   const {priest,setPriest,setTokenExits} = useContext(ContextProvider);
   const [loading,setLoading] = useState(false);
   const Navigate = useNavigate();
@@ -50,6 +57,7 @@ const SignUp = ({button,heading,user_id}) => {
         }
         else{
         setLoading(true)
+        priest.Phone = phone;
         console.log(priest)
         const res = await registration(priest);
         setLoading(false);
@@ -73,6 +81,24 @@ const SignUp = ({button,heading,user_id}) => {
       const handleChange = (e) => {
         setPriest({ ...priest, [e.target.name]: e.target.value })
       };
+      const sendOtp = async()=>{      
+       try {
+         const phoneNumber = '+' + phone;
+         const recapta  = new RecaptchaVerifier(auth,'recapta',{});
+         const confirmation = await signInWithPhoneNumber(auth,phoneNumber,recapta);
+         setUser(confirmation)
+         alert("otp send");
+         setSendOpt(true);
+       } catch (error) {
+        console.error(error)
+       }
+      }
+      const verfiy = async()=>{
+            const data = await user.confirm(otp);
+            if(data.user.phoneNumber){
+              alert("Phone is verified");
+            }
+      }
   return (
     <div className='login-container' >
 {
@@ -85,7 +111,20 @@ const SignUp = ({button,heading,user_id}) => {
             {isEdit?<h3>{heading}</h3>:<h3>SignUp</h3>}
         </div>
         <input required value={priest.Name} onChange={handleChange} name='Name' type="text" placeholder='Your Name' />
-        <input required value={priest.Phone} onChange={handleChange} name='Phone' type="tel" placeholder='Phone Number' />
+        <div style={{display:'flex'}}>
+
+        <PhoneInput 
+        value={phone}
+        onChange={value=>setPhone(value)}
+        />
+        <div id='recapta'></div>
+        <button onClick={sendOtp}>sendOtp</button>
+        {
+         otpSent?<div><input type="text" placeholder='enter otp' 
+         onChange={e=>setOTP(e.target.value)}
+          /> <button onClick={verfiy}>verfiy</button></div>:''
+        }
+        </div>
         <input required value={priest.Whatsapp} onChange={handleChange} name='Whatsapp' type="tel" placeholder='Whatsapp' />
         <textarea style={{maxWidth:'100%'}} type="text" value={priest.Bio} placeholder='Bio' name='Bio' onChange={handleChange} required  />
         <input required  onChange={handleChange} name='Password' type="password" placeholder={isEdit?'Enter New Password':'Set Password'} />
