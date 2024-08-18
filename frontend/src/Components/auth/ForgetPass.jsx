@@ -17,11 +17,11 @@ const ForgetPass = () => {
   const [isSent,setSent] = useState(false)
   const Navigate = useNavigate();
 const sendOtp = async()=>{
-  const res = await phoneExit(phone);
-  if(!res&&!res.success){
-    alert("Phone No. Does Not Exits");
-    return;
-  }
+  // const res = await phoneExit(phone);
+  // if(!res&&!res.success){
+  //   alert("Phone No. Does Not Exits");
+  //   return;
+  // }
   try {
     const phoneNumber = '+' + phone;
     const recapta  = new RecaptchaVerifier(auth,'recapta',{});
