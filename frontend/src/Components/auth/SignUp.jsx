@@ -119,7 +119,7 @@ const SignUp = ({ button, heading, user_id }) => {
       );
       toast.success("OTP has been sent !");
       setUser(confirmation);
-      setSendOpt(true);
+      setIsOptSent(true);
     } catch (error) {
       toast.error(error.message)
       console.error(error);
