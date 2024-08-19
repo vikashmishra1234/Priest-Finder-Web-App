@@ -21,24 +21,53 @@ $dark-gray: #333;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
+    max-width: 650px;
 
     .signup {
       display: flex;
       flex-direction: column;
 
       h3 {
-        text-align: center;
-        margin-bottom: 20px;
-        color: $dark-gray;
+        font-size: 30px;
+    font-family: sans-serif;
+    color: #343131;
+    text-align: center;
+      }
+      .input-phone2{
+        display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    input{
+      margin-bottom: 20px;
+        outline: none;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 19px;
+        height: 37px;
+        background: #e4edf0;
+    }
+    .otp-btn{
+      height: 46px;
+      width: 102px;
+      font-size: 18px;
+      text-transform: capitalize;
+    }
       }
 
-      input {
-        margin-bottom: 15px;
+      .int,textarea {
+        margin-bottom: 20px;
+        outline: none;
         padding: 10px;
-        border: 1px solid $gray;
-        border-radius: 4px;
-        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        font-size: 19px;
+        height: 37px;
+        background: #e4edf0;
+      }
+      textarea{
+        min-height: 60px;
       }
 
       button {
@@ -50,6 +79,8 @@ $dark-gray: #333;
         font-size: 16px;
         cursor: pointer;
         transition: background-color 0.3s;
+        height: 52px;
+        font-size: 20px;
 
         &:hover {
           background-color: darken($primary-color, 5%);
@@ -70,14 +101,42 @@ $dark-gray: #333;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 720px) {
   .login-container {
+    max-width: 90%;
+    margin: auto;
     .login-form {
       padding: 20px;
 
       .signup {
-        input, button {
-          font-size: 14px;
+        h3{
+          font-size: 23px;
+        }
+        .input-phone2{
+          .special-label{
+            display: none;
+          }
+            input{
+              width: 80%;
+              height: 28px;
+              font-size: 17px;
+            }
+          .otp-btn{
+            height: 40px;
+            font-size: 15px;
+            margin-left: 10px;
+          }
+       
+        }
+        .int {
+          height: 28px;
+          font-family: sans-serif;
+          text-transform: capitalize;
+          font-size: 17px;
+        }
+        button{
+          font-size: 18px;
+          height: 40px;
         }
       }
     }

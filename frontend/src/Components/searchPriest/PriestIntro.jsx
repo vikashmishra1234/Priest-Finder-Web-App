@@ -24,7 +24,7 @@ const PriestIntro = ({priest,profile}) => {
             }
 
             <div className='profile-name'>
-            <CgProfile style={{display:'none'}} color='green' size={'28px'} /> <span>{priest.Name}</span>
+            <span>{priest.Name}</span>
             </div>
         </div>
         <div className='profile-about'>

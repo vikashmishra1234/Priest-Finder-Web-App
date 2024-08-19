@@ -18,6 +18,8 @@ const Home = lazy(() => import('./Components/Home/Home'));
 import SearchPriest from './Components/searchPriest/SearchPriest'
 import ProfilePriest from './Components/searchPriest/ProfilePriest'
 import { Loading } from './Components/Loader';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 const App = () => {
   const [changes, setChanges] = useState(Math.random());
@@ -54,7 +56,7 @@ const App = () => {
             <Route exact path='/priest/find' element={<SearchPriest changes={changes} key={Math.random()} />} />
             <Route exact path='/priest' element={<ProfilePriest setChanges={setChanges} />} />
         </Routes>
-        
+        <ToastContainer position='top-center'/>
       </Router>
     </>
   );

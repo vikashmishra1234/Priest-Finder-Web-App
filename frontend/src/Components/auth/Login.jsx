@@ -43,6 +43,7 @@ const Login = () => {
         <div className='signup'>
           <h3>Login</h3>
           <input 
+          className='int'
             placeholder='Enter Phone' 
             required 
             onChange={(e) => setPhone(e.target.value)} 
@@ -51,6 +52,7 @@ const Login = () => {
             id="phone" 
           />
           <input 
+          className='int'
             placeholder='Enter Password' 
             required 
             onChange={(e) => setPassword(e.target.value)} 

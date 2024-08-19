@@ -21,8 +21,7 @@ const Navbar = () => {
           <li onClick={() => setShow(false)}><Link to={`${tokenExits?'/user':'/register'}`}>{tokenExits ? 'My Profile' : 'Become Priest'}</Link></li>
           <li onClick={() => setShow(false)}><Link to='/priest/find'>Find Priest</Link></li>
           <li onClick={() => setShow(false)}><Link to='/restaurent'>Best Restaurant</Link></li>
-          <li onClick={() => setShow(false)}>Hotel</li>
-          <li onClick={() => setShow(false)}>Contact Us</li>
+          <li onClick={() => setShow(false)}><Link to='https://vikash-six.vercel.app' target='_blank'>Contact Us</Link></li>
         </ul>
       </nav>
       <div className="ham">

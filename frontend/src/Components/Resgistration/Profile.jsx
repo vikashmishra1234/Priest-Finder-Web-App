@@ -40,7 +40,7 @@ const Profile = ({ profileData, setTokenExits }) => {
           {profileData.Profile && <img src={profileData.Profile} alt="" />}
 
           <div className="profile-name">
-            <CgProfile color="" className="icon" size={"30px"} /> <span>{profileData.Name}</span>
+             <span>{profileData.Name}</span>
           </div>
           <div className='more'>
         <MdMoreVert onClick={()=>setShow(!show)} style={{cursor:'pointer'}} />
