@@ -8,18 +8,19 @@ const api = axios.create({
     // baseURL: 'https://tourist-guide-ha95.onrender.com'
 });
 
-// Utility function to get config with Authorization header
 const getAuthConfig = () => ({
     headers: {
         "Authorization": `vikash ${Cookies.get("priestToken")}`
     }
 });
 
-// Common error handler
 const handleError = (error) => {
-    if (error.response) {
+    if(error.response.status==404){
+
+    }
+    else if (error.response) {
         console.error('Error message:', error.response.data.error);
-        alert(error.response.data.error);
+        // alert(error.response.data.error);
     } else {
         console.error('Unexpected error:', error.message);
     }

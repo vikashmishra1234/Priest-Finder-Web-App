@@ -16,7 +16,6 @@ import Footer from "../footer/Footer";
 const Home = () => {
   const Navigate = useNavigate();
   const priests = useSelector((state) => state.PriestData.priests);
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchPriestData());
@@ -50,7 +49,7 @@ const Home = () => {
       <div className="restaurent">
         <h2 style={{ marginBottom: "33px" }}>Bhojanalaya in Vrindavan</h2>
         {restaurentData.restaurents.map((data) => (
-          <Cards data={data} />
+          <Cards key={Math.random()} data={data} />
         ))}
         
         <div

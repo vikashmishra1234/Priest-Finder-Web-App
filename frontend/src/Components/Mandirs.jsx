@@ -9,7 +9,7 @@ const Mandirs = () => {
     {
         mandirData.mandirs.map(mandir=>(
 
-            <Cards data={mandir}/>
+            <Cards key={Math.random()} data={mandir}/>
         ))
     }
    </section>

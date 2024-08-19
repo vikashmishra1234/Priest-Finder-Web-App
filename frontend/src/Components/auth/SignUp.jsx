@@ -111,7 +111,9 @@ const SignUp = ({ button, heading, user_id }) => {
   const sendOtp = async () => {
     try {
       const phoneNumber = "+" + priestFormData.Phone;
-      const recapta = new RecaptchaVerifier(auth, "recapta", {});
+      const recapta = new RecaptchaVerifier(auth, "recapta", {
+        size:"invisible"
+      });
       const confirmation = await signInWithPhoneNumber(
         auth,
         phoneNumber,

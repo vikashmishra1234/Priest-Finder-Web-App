@@ -61,14 +61,14 @@ exports.updatePriest = async (req, res) => {
        // Assuming priest_id is passed as a URL parameter
 
         // Find the priest by ID and update with the data from req.body
-        const {Password} = req.body;
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(Password, salt);
-        req.body.Password = hashedPassword;
-        const updatePriest = await Priest.findByIdAndUpdate(req.user.id, req.body, {
-            new: true,
-           
-        });
+        
+        if(req.body.Password){
+
+            const salt = await bcrypt.genSalt(10);
+            const hashedPassword = await bcrypt.hash(req.body.Password, salt);
+            req.body.Password = hashedPassword;
+        }
+        const updatePriest = await Priest.findByIdAndUpdate(req.user.id, req.body);
 
         if (!updatePriest) {
             return res.status(404).json({ error: 'Priest not found', success: false });

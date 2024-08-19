@@ -13,8 +13,6 @@ const feedbackSchema= mongoose.Schema({
         type:String,
         required:true
     }
-  
-  
 });
 
 module.exports = mongoose.model('feedback',feedbackSchema);
