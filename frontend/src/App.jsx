@@ -17,8 +17,10 @@ const App = () => {
   return (
     
       
-   
-    <ContextState>
+    // <Landing/>
+    //     <About/>
+    //     <Mandirs/>
+    <>
 
     <Router>
         <Navbar/>
@@ -35,7 +37,7 @@ const App = () => {
       </Routes>
     
     </Router>
-    </ContextState>
+    </>
   )
 }
 

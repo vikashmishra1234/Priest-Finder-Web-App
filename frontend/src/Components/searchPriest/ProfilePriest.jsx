@@ -26,8 +26,8 @@ const ProfilePriest = ({ setChanges }) => {
 
   },[resPriest])
   useEffect(()=>{
-    dispatch(fetchPriestData());
-  },[])
+    !resPriest&&dispatch(fetchPriestData());
+  },[resPriest])
  
   return (
     <div >
