@@ -43,7 +43,7 @@ const Footer = () => {
 <div className='footer-second'>
 <h3>Contact Us:</h3>
 <div className='info'>
-    <a href="mailto:vikashmishra8371@gmail.com"><MdEmail size={25}/>vikashmishra8371@gmail.com</a>
+    <a href="mailto:vikashmishra8371@gmail.com"><MdEmail size={25}/>nishat8371@gmail.com</a>
     <a href="tel:+91 8979481819"><FaPhone size={22}/>+91 8979481819</a>
     <p><FaLocationArrow  size={25}/>Mathura,Uttar Pradesh India.</p>
 </div>
