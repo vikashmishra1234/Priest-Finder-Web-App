@@ -9,37 +9,7 @@ body {
   padding: 0; 
   
 }
-#see{
-  box-shadow: 0px -9px 8px #757070;
-    margin-top: 30px;
-    margin-bottom: 13px;
-    display: flex;
-    font-size: 20px;
-    align-items: center;
-    justify-content: center;
-    font-family: system-ui;
-    background: #8181e9;
-    color: white;
-    gap: 10px;
-    padding: 5px;
-    cursor: pointer;
-}
-h2{
-  text-align: center;
-    font-size: 36px;
-    font-family: system-ui;
-    background: #f19c77;
-    margin: 0;
-    padding-top: 18px;
-    padding-bottom: 18px;
-    color: white;
-}
-@media screen and (max-width:600px){
-  h2{
-    font-size: 21px;
-  }
-  #see{
-    font-size: 16px;
-  }
-}
+
+
+
 

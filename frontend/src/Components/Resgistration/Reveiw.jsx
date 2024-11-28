@@ -4,7 +4,7 @@ import FeedbackForm from './FeedbackForm'
 
 const Reveiw = ({priestId}) => {
   return (
-    <div className='review-container'>
+    <div className=''>
         <h2>FeedBacks</h2>
         <div>
           <Carousels priestId={priestId}/>

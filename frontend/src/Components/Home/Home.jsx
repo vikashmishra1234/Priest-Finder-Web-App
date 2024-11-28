@@ -1,55 +1,64 @@
-import React, { useEffect } from 'react'
-import './style.scss'
-import Mandirs from '../Mandirs'
-import PriestIntro from '../searchPriest/PriestIntro';
-import { useSelector, useDispatch } from 'react-redux'
-import { fetchPriestData } from '../redux/Priest/getPriest';
+import React, { useEffect } from "react";
+import "./style.scss";
+import Mandirs from "../Mandirs";
+import PriestIntro from "../searchPriest/PriestIntro";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchPriestData } from "../redux/Priest/getPriest";
 import { FaLongArrowAltRight } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom';
-import Cards from '../Restaurents/Cards';
-import restaurentData from '../../RestaurentData.json';
-import About from './About';
-import Footer from '../footer/Footer';
-import Landing from './Carousels';
+import { useNavigate } from "react-router-dom";
+import Cards from "../Restaurents/Cards";
+import restaurentData from "../../RestaurentData.json";
+import About from "./About";
+import Footer from "../footer/Footer";
+import Landing from "./Carousels";
 
 const Priests = () => {
   const Navigate = useNavigate();
   const priests = useSelector((state) => state.PriestData.priests) || null;
- 
-  const dispatch = useDispatch()
-  useEffect(()=>{
-      console.log(priests)
-    !priests&&dispatch(fetchPriestData())
-      
-  },[priests])
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    !priests && dispatch(fetchPriestData());
+  }, [priests]);
   return (
     <div>
-            <Landing/>
-         <About/>
-         <Mandirs/>
-        <div>
-        <h2>Some Popular Priests in Vrindavan</h2>
-        {
-        priests?priests.length>0&&priests.map((priest,ind)=>(
-           ind<3?<PriestIntro priest={priest} key={priest._id}/>:'' 
-        )):<div>Loading...</div>
-       }
-       <div  onClick={()=>{Navigate('/priest/find')}}>See All <FaLongArrowAltRight /></div>
-        </div>
-        <div className=''>
-          <h2 style={{marginBottom:'33px'}}>Bhojanalaya in Vrindavan</h2>
-        {
+      <Landing />
+      <About />
+      <Mandirs />
+      <div>
+        {priests ? ( 
+          <div className="mt-10">
+            <h2 className="text-3xl font-bold text-center text-orange-800 mb-8 flex items-center justify-center">Some Popular Priests in Vrindavan</h2>
+            {  priests.map((priest, ind) =>
+                ind < 3 ? <PriestIntro priest={priest} key={priest._id} /> : ""
+              )}
+                 <button
+      onClick={() => Navigate('/priest/find')}
+      className="group flex items-center justify-center space-x-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-50 shadow-md hover:shadow-lg"
+    >
+      <span className="text-sm md:text-base">See All Priests</span>
+      <FaLongArrowAltRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
+    </button>
+          </div>
           
-        restaurentData.restaurents.map(data=>(
-
-          <Cards data={data}/>
-        ))
-      }
-      <div  onClick={()=>{Navigate('/restaurent')}}>See all <FaLongArrowAltRight /></div>
+        ) : (
+          <div>No Priest Found.</div>
+        )}
+      </div>
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl font-bold text-center text-orange-800 mb-8 flex items-center justify-center">
+          Bhojanalaya in Vrindavan
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {restaurentData.restaurents.map((data) => (
+            <Cards data={data} />
+          ))}
         </div>
-      <Footer/>
+      
+      </div>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Priests
+export default Priests;

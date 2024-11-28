@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './Priest/getPriest'
+import PreistData from './Priest/getPriest';
+import PriestFeedback from './Priest/Feedbacks'
 
 export const store = configureStore({
   reducer: {
-    PriestData: counterReducer,
+    PriestData: PreistData,
+    Feedbacks:PriestFeedback
   },
 })

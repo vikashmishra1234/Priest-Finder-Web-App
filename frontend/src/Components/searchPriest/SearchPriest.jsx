@@ -11,23 +11,22 @@ const SearchPriest = ({changes}) => {
     const loading = useSelector((state) => state.PriestData.loading)
     const dispatch = useDispatch()
     useEffect(()=>{
-        dispatch(fetchPriestData())
+        !priests&&dispatch(fetchPriestData())
         
-    },[])
+    },[priests])
     useEffect(()=>{
         window.scrollTo(0, 0);
         
     },[])
   return (
     <>
-    <section className='search-priest'>
+    <section className='mt-10'>
         {
             loading&&<Loading/>
         }
-        <div className='heading'>
-            <h2>
-                Some Popular Priest In Mathura-Vrindavan
-            </h2>
+        <div className=''>
+        <h2 className="text-3xl font-bold text-center text-orange-800 mb-8 flex items-center justify-center">Some Popular Priests in Vrindavan</h2>
+
         </div>
        {
         priests&&priests.length>0&&priests.map((priest)=>(

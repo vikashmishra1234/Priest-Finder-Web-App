@@ -5,17 +5,16 @@ import Feedbacks from './Feedbacks';
 import { getFeedback } from '../../Services/Apis';
 import { retry } from '@reduxjs/toolkit/query';
 import ContextProvider from '../../Context/ContextProvider';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchData } from '../redux/Priest/Feedbacks';
 const Carousels = ({priestId}) => {
-  const [feedbacks,setFeedback] = useState([]);
   const {change} = useContext(ContextProvider);
+  const feedbacks = useSelector((state)=>{
+   return state.Feedbacks.feedbacks
+  })
+  const dispatch = useDispatch();
   useEffect(()=>{
-    const getData = async()=>{
-      
-      const res = await getFeedback(priestId);
-      setFeedback(res.feedbacks)
-      
-    }
-   getData()
+    dispatch(fetchData(priestId))
   },[priestId,change])
   return (
     <Carousel
@@ -26,7 +25,7 @@ const Carousels = ({priestId}) => {
     autoPlay={true}
     >
 {
-  feedbacks.length>0?feedbacks.map(feed=>(
+  feedbacks?feedbacks.map(feed=>(
     <div style={{marginTop:'20px'}}>
 
       <Feedbacks Name={feed.user_Name} Feedback={feed.Feedback} key={feed._id}/>

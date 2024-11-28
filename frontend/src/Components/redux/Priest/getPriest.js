@@ -8,11 +8,9 @@ const initialState = {
 };
 
 export const fetchPriestData = createAsyncThunk(
-  'PriestData/fetchPriestData',
+  'PriestData',
   async () => {
-   alert("hii")
     const res = await getPriests();
-    
     return res.priests;
   }
 );

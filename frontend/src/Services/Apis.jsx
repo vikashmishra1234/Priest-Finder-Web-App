@@ -1,6 +1,6 @@
 import axios from "axios"
-const url = 'http://localhost:5000';
-// const url = 'https://tourist-guide-ha95.onrender.com'
+// const url = 'http://localhost:5000';
+const url = 'https://tourist-guide-ha95.onrender.com'
 
 export const registration=async(data)=>{
    
