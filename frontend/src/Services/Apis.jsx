@@ -54,6 +54,7 @@ export const getPriests=async()=>{
    
    
     try {
+        
         const res =await axios.get(`${url}/priests/get`);
         return res.data;
     } catch (error) {
@@ -135,6 +136,18 @@ export const addFeedback=async(data)=>{
     } catch (error) {
         if (error.response) {
            
+            console.error('Error message:', error.response.data.error);
+            alert(error.response.data.error)
+          }
+    }
+}
+export const updateInvite = async(id)=>{
+   
+    try {
+        const res =await axios.put(`${url}/update/invites?priestId=${id}`);
+        return res.data;
+    } catch (error) {
+        if (error.response) { 
             console.error('Error message:', error.response.data.error);
             alert(error.response.data.error)
           }

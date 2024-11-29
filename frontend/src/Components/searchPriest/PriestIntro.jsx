@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FaPhoneAlt, FaWhatsapp, FaStar, FaUserTie } from "react-icons/fa"
+import { updateInvite } from '../../Services/Apis'
 
 
 
 const PriestIntro= ({ priest, profile }) => {
+  const [addOne,setOne] = useState(0);
   const navigate = useNavigate()
-
+  const updateInvites = async(priestId)=>{
+      await updateInvite(priestId)
+      setOne(1);
+  }
   return (
     <div className="max-w-4xl  mx-auto my-8 bg-gradient-to-r from-orange-100 to-yellow-100 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
       <div className="md:flex">
@@ -28,7 +33,7 @@ const PriestIntro= ({ priest, profile }) => {
               {[...Array(5)].map((_, i) => (
                 <FaStar key={i} className="text-yellow-400 w-4 h-4 md:w-5 md:h-5" />
               ))}
-              <span className="ml-2 text-gray-600 text-sm md:text-base">({priest.Invites} invites)</span>
+              <span className="ml-2 text-gray-600 text-sm md:text-base">({priest.Invites+addOne} invites)</span>
             </div>
           </div>
           
@@ -52,6 +57,7 @@ const PriestIntro= ({ priest, profile }) => {
             ) : (
               <>
                 <a
+                onClick={()=>updateInvites(priest._id)}
                   href={`tel:${priest.Phone}`}
                   className="w-full sm:w-auto px-6 py-3 bg-blue-500 text-white text-sm md:text-base font-semibold rounded-full hover:bg-blue-600 transition duration-300 ease-in-out flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                 >

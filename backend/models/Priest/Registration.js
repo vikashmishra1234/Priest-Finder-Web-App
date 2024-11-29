@@ -19,7 +19,7 @@ const priestSchema= mongoose.Schema({
         required:true
     },
     Invites:{
-        type:String,
+        type:Number,
         default:"0"
     },
     Profile:{

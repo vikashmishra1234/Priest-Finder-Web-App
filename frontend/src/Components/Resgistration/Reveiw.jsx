@@ -4,8 +4,8 @@ import FeedbackForm from './FeedbackForm'
 
 const Reveiw = ({priestId}) => {
   return (
-    <div className=''>
-        <h2>FeedBacks</h2>
+    <div className='max-w-4xl m-auto'>
+        <h2 className='bg-orange-400 py-4 text-center text-3xl'>Feedbacks</h2>
         <div>
           <Carousels priestId={priestId}/>
           <FeedbackForm priestId={priestId}/>
