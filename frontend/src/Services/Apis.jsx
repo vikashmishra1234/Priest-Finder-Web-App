@@ -1,6 +1,6 @@
 import axios from "axios"
-// const url = 'http://localhost:5000';
-const url = 'https://priest-finder-web-app-lmuv.onrender.com'
+const url = 'http://localhost:5000';
+// const url = 'https://priest-finder-web-app-lmuv.onrender.com'
 
 export const registration=async(data)=>{
    

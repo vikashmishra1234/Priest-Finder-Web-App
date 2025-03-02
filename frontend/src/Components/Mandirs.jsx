@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import Cards from './Restaurents/Cards'
 import mandirData from '../mandirData.json'
 import { MdTempleHindu } from "react-icons/md"
+import TakeMandirInput from './searchPriest/TakeMandirInput'
 
 const Mandirs = () => {
   const [temples,setTemples] = useState(mandirData.mandirs)
+  const [searchedTemple,setSearchTemple] = useState()
   useEffect(()=>{
 
     if (navigator.geolocation) {
@@ -55,8 +57,9 @@ console.log(temples,"this is temples")
   
   return (
     <section className="bg-gradient-to-b from-orange-100 to-yellow-50 py-12 px-4 sm:px-6 lg:px-8">
+      <TakeMandirInput setSearchTemple={setSearchTemple}/>
       {
-        temples[0]?.distance<5?
+        temples[0]?.distance?
         <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-center text-orange-800 mb-8 flex items-center justify-center">
           <MdTempleHindu className="mr-2 text-4xl" />
@@ -64,7 +67,7 @@ console.log(temples,"this is temples")
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {temples.map((mandir, index) => (
-           mandir.distance<5&& <Cards distance={mandir.distance} key={index} data={mandir} />
+           mandir.distance&& <Cards distance={mandir.distance} key={index} data={mandir} />
           ))}
         </div>
       </div>
