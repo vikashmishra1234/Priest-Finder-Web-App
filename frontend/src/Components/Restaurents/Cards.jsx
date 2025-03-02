@@ -4,7 +4,7 @@ import { MdTempleHindu } from "react-icons/md";
 
 
 
-const Cards = ({ data }) => {
+const Cards = ({ data,distance=null }) => {
   return (
     <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out transform hover:-translate-y-1">
       <div className="relative">
@@ -29,6 +29,13 @@ const Cards = ({ data }) => {
               <span className="font-semibold">Summer:</span>
               <span className="ml-2">{data.summer}</span>
             </p>
+            {
+              distance&&<p className="flex items-center text-yellow-600">
+              <FaSun className="mr-2 text-lg" />
+              <span className="font-semibold">Distace From You:</span>
+              <span className="ml-2">{distance} km.</span>
+            </p>
+            }
           </div>
         )}
       </div>

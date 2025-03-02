@@ -25,7 +25,7 @@ const Priests = () => {
       <Landing />
       <About />
       <Mandirs />
-      <div>
+      {/* <div>
         {priests ? ( 
           <div className="mt-10">
             <h2 className="text-3xl font-bold text-center text-orange-800 mb-8 flex items-center justify-center">Some Popular Priests in Vrindavan</h2>
@@ -55,7 +55,7 @@ const Priests = () => {
           ))}
         </div>
       
-      </div>
+      </div> */}
       <Footer />
     </div>
   );
