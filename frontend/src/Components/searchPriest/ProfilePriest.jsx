@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import PriestIntro from "./PriestIntro";
-import ContextProvider from "../../Context/ContextProvider";
 import { useLocation } from "react-router-dom";
 import { useSelector } from 'react-redux'
 import Reveiw from "../Resgistration/Reveiw";
